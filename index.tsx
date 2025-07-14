@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import App from './App.tsx'; // <--- AGGIUNTA L'ESTENSIONE .tsx per chiarezza
+import './index.css'; // <--- QUESTA È LA RIGA FONDAMENTALE CHE MANCAVA!
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
