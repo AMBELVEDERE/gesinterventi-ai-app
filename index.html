@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Rapportini Intervento</title>
-    <!-- Rimuovi qui il tag script con cdn.tailwindcss.com se lo avevi rimesso -->
-    <!-- Rimuovi qui il tag script con importmap se lo avevi rimesso -->
-    <!-- Rimuovi qui il tag link a index.css se lo avevi rimesso -->
+    <!-- 
+      Questi tag non devono esserci:
+      - <script src="https://cdn.tailwindcss.com"></script>
+      - <script type="importmap">...</script>
+      - <link rel="stylesheet" href="/index.css"> (Vite gestisce questo import dal JS)
+    -->
 
-    <!-- Manteniamo gli stili di stampa, se necessari -->
+    <!-- Manteniamo gli stili di stampa, se necessari. Se fossero in index.css, Vite li gestirà. -->
     <style>
       @media print {
         .no-print {
@@ -31,9 +34,8 @@
   <body class="bg-gray-50">
     <div id="root"></div>
     <!-- 
-      *** MODIFICA FONDAMENTALE QUI: il percorso dell'entry point di Vite ***
-      Se index.tsx è nella root del progetto, il percorso è solo "/index.tsx".
-      Se fosse stato in src/index.tsx, allora sarebbe "/src/index.tsx".
+      *** PERCORSO CORRETTO PER index.tsx SE È NELLA ROOT DEL PROGETTO ***
+      Questo è il punto di ingresso per Vite. 
     -->
     <script type="module" src="/index.tsx"></script> 
   </body>
