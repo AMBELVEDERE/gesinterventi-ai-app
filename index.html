@@ -1,43 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Rapportini Intervento</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.1.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
-    "react/": "https://esm.sh/react@^19.1.0/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.9.0"
-  }
-}
-</script>
-<style>
-  @media print {
-    .no-print {
-      display: none !important;
-    }
-    body {
-      background-color: white !important;
-    }
-    main {
-      overflow: visible !important;
-    }
-    .printable-area {
-       box-shadow: none !important;
-       border: none !important;
-       padding: 0 !important;
-    }
-  }
-</style>
-<link rel="stylesheet" href="/index.css">
-</head>
+    <!-- 
+      IMPORTANTE:
+      - Rimuoviamo il CDN di Tailwind. Il CSS verrà processato da Vite/Tailwind in fase di build.
+      - Rimuoviamo il tag importmap. Vite si occuperà di bundlare React, ReactDOM e Google GenAI.
+      - Rimuoviamo il link a index.css. Vite lo inietterà automaticamente nel bundle JS 
+        o come file CSS separato con hashing, basandosi sull'import in main.tsx/index.tsx.
+    -->
+
+    <!-- Manteniamo gli stili di stampa qui, se strettamente necessario, 
+         anche se in un progetto React è spesso meglio gestirli via JS o CSS importato. -->
+    <style>
+      @media print {
+        .no-print {
+          display: none !important;
+        }
+        body {
+          background-color: white !important;
+        }
+        main {
+          overflow: visible !important;
+        }
+        .printable-area {
+          box-shadow: none !important;
+          border: none !important;
+          padding: 0 !important;
+        }
+      }
+    </style>
+  </head>
   <body class="bg-gray-50">
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <!-- 
+      Questo è l'unico script che deve caricare la tua applicazione React.
+      Vite userà questo come punto di ingresso per tutta la logica, inclusi gli import di CSS e di tutti i moduli JS.
+      Assicurati che 'index.tsx' sia effettivamente il tuo entry point principale, e se si trova in src/, il path sia /src/index.tsx.
+      Se il tuo entry point fosse src/main.tsx, allora dovresti usare '/src/main.tsx'.
+    -->
+    <script type="module" src="/src/index.tsx"></script> 
   </body>
 </html>

@@ -1,12 +1,16 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import { StructuredReport, Customer, InterventionReport, Appointment } from '../types';
 
-if (!process.env.API_KEY) {
-  throw new Error("API_KEY non trovata. Assicurati che la variabile d'ambiente process.env.API_KEY sia impostata.");
+// *** MODIFICA QUI: Accesso corretto alla variabile d'ambiente con Vite ***
+// Le variabili d'ambiente di Vite accessibili nel client devono iniziare con VITE_
+// e vanno lette tramite import.meta.env
+if (!import.meta.env.VITE_GEMINI_API_KEY) {
+  throw new Error("VITE_GEMINI_API_KEY non trovata. Assicurati che la variabile d'ambiente sia impostata su Vercel e che il nome sia corretto (es. VITE_GEMINI_API_KEY).");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY });
+// *** FINE MODIFICA ***
+
 
 const reportSchema = {
   type: Type.OBJECT,
