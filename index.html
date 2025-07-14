@@ -4,16 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Rapportini Intervento</title>
-    <!-- 
-      IMPORTANTE:
-      - Rimuoviamo il CDN di Tailwind. Il CSS verrà processato da Vite/Tailwind in fase di build.
-      - Rimuoviamo il tag importmap. Vite si occuperà di bundlare React, ReactDOM e Google GenAI.
-      - Rimuoviamo il link a index.css. Vite lo inietterà automaticamente nel bundle JS 
-        o come file CSS separato con hashing, basandosi sull'import in main.tsx/index.tsx.
-    -->
+    <!-- Rimuovi qui il tag script con cdn.tailwindcss.com se lo avevi rimesso -->
+    <!-- Rimuovi qui il tag script con importmap se lo avevi rimesso -->
+    <!-- Rimuovi qui il tag link a index.css se lo avevi rimesso -->
 
-    <!-- Manteniamo gli stili di stampa qui, se strettamente necessario, 
-         anche se in un progetto React è spesso meglio gestirli via JS o CSS importato. -->
+    <!-- Manteniamo gli stili di stampa, se necessari -->
     <style>
       @media print {
         .no-print {
@@ -36,11 +31,10 @@
   <body class="bg-gray-50">
     <div id="root"></div>
     <!-- 
-      Questo è l'unico script che deve caricare la tua applicazione React.
-      Vite userà questo come punto di ingresso per tutta la logica, inclusi gli import di CSS e di tutti i moduli JS.
-      Assicurati che 'index.tsx' sia effettivamente il tuo entry point principale, e se si trova in src/, il path sia /src/index.tsx.
-      Se il tuo entry point fosse src/main.tsx, allora dovresti usare '/src/main.tsx'.
+      *** MODIFICA FONDAMENTALE QUI: il percorso dell'entry point di Vite ***
+      Se index.tsx è nella root del progetto, il percorso è solo "/index.tsx".
+      Se fosse stato in src/index.tsx, allora sarebbe "/src/index.tsx".
     -->
-    <script type="module" src="/src/index.tsx"></script> 
+    <script type="module" src="/index.tsx"></script> 
   </body>
 </html>
